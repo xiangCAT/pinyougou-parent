@@ -1,0 +1,11 @@
+/pinyougou-common/*
+/pinyougou-common/*.classpath
+/pinyougou-common/*.project
+/pinyougou-content-interface/*.classpath
+/pinyougou-content-interface/*.project
+/pinyougou-content-interface/*.settings
+/pinyougou-content-interface/target/*
+/*.settings
+/*.project
+/pinyougou-content-service/*.classpath
+/pinyougou-content-service/*.project

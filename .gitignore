@@ -1,4 +1,3 @@
-/pinyougou-common/*
 /pinyougou-common/*.classpath
 /pinyougou-common/*.project
 /pinyougou-content-interface/*.classpath
@@ -9,3 +8,5 @@
 /*.project
 /pinyougou-content-service/*.classpath
 /pinyougou-content-service/*.project
+/pinyougou-user-interface/*.classpath
+/pinyougou-user-interface/*.project

@@ -1,6 +1,7 @@
 package com.pinyougou.search.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -28,6 +29,11 @@ public class ItemSearchListener implements MessageListener {
 			System.out.println("监听到消息:"+text);
 			
 			List<TbItem> itemList = JSON.parseArray(text, TbItem.class);
+			//TODO 规格数据还需要处理下
+			for (TbItem tbItem : itemList) {
+                System.out.println(tbItem.getId() + " " + tbItem.getTitle());
+                tbItem.setSpecMap(JSON.parseObject(tbItem.getSpec(), Map.class));
+            }
 			itemSearchService.importList(itemList);
 			System.out.println("导入到solr索引库");
 			

@@ -49,14 +49,22 @@ public class CartController {
     @Reference
     private CartService cartService;
 
-    
     @RequestMapping("/addGoodsToCartList")
     public Result addGoodsToCartList(Long itemId,Integer num){
         /**
          * 1、获取cookie购物车
          * 2、将商品添加到cookie购物车中
          * 3、将cookie购物车写会浏览器
+         * 
          */
+        
+        /**
+         * 解决js跨域调用
+         */
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:9105");//允许调用
+        response.setHeader("Access-Control-Allow-Credentials", "true");//允许传递cookie信息
+        
+        
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             System.out.println("登录用户："+username);

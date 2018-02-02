@@ -1,6 +1,7 @@
 package com.pinyougou.order.service;
 import java.util.List;
 import com.pinyougou.pojo.TbOrder;
+import com.pinyougou.pojo.TbPayLog;
 
 import entity.PageResult;
 /**
@@ -57,5 +58,27 @@ public interface OrderService {
 	 * @return
 	 */
 	public PageResult findPage(TbOrder order, int pageNum,int pageSize);
+
+
+	/**
+	 * 
+	 * 查询订单支付日志(父订单)
+	 * @param userid ： 当前用户
+	 * @return<br/>
+	 * ============History===========<br/>
+	 * 2018年2月2日   Administrator    新建
+	 */
+    public TbPayLog queryPayLog(String userid);
+    
+    /**
+     * 
+     * 修改订单支付状态
+     * @param paylogId : 订单支付日志id
+     * @param transaction_id ： 微信交易流水号
+     * @throws Exception<br/>
+     * ============History===========<br/>
+     * 2018年2月2日   Administrator    新建
+     */
+    public void updateOrderStatus(String paylogId,String transaction_id) throws Exception;
 	
 }

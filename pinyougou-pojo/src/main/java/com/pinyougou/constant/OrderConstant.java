@@ -26,4 +26,8 @@ public class OrderConstant {
      * 未支付
      */
     public static final String NO_PAY = "1";
+    /**
+     * 已支付
+     */
+    public static final String PAY = "2";
 }

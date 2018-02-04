@@ -44,4 +44,15 @@ public interface WeixinPayService {
      * 2018年2月2日   Administrator    新建
      */
     public Map queryOrderStatus(String order_no) throws Exception;
+    
+    /**
+     * 
+     * 关闭微信支付订单
+     * @param order_no ： 订单号
+     * @return
+     * @throws Exception<br/>
+     * ============History===========<br/>
+     * 2018年2月4日   Administrator    新建
+     */
+    public Map closeOrder(String order_no) throws Exception;
 }

@@ -133,4 +133,44 @@ public class WeixinPayServiceImpl implements WeixinPayService {
         return xmlToMap;
     }
 
+
+    /**
+     * 
+     * 关闭微信支付订单
+     * @param order_no ： 订单号
+     * @return
+     * @throws Exception<br/>
+     * ============History===========<br/>
+     * 2018年2月4日   Administrator    新建
+     */
+    @Override
+    public Map closeOrder(String order_no) throws Exception {
+        /**
+         * 1、准备参数
+         * 2、使用HttpClient工具POST方式向微信支付系统发送xml数据
+         * 3、获取响应结果
+         * 4、返回url
+         */
+        //准备参数
+        Map paramMap = new HashMap<>();
+        paramMap.put("appid", appid);
+        paramMap.put("mch_id", partner);
+        paramMap.put("nonce_str", WXPayUtil.generateNonceStr());
+        paramMap.put("out_trade_no", order_no);
+        
+        //发送请求
+        String xmlParam = WXPayUtil.generateSignedXml(paramMap, partnerkey);
+        System.out.println("统一下单请求xml数据：" + xmlParam);
+        HttpClient client = new HttpClient("https://api.mch.weixin.qq.com/pay/closeorder");
+        
+        client.setHttps(true);
+        client.setXmlParam(xmlParam);//请求参数
+        client.post();
+        String content = client.getContent();
+        System.out.println("统一下单结果：" + content);
+        Map<String, String> xmlToMap = WXPayUtil.xmlToMap(content);
+        
+        return xmlToMap;
+    }
+
 }

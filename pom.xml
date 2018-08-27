@@ -35,6 +35,7 @@
   	<module>pinyougou-seckill-interface</module>
   	<module>pinyougou-seckill-service</module>
   	<module>pinyougou-seckill-web</module>
+  	<module>spring-task-service</module>
   </modules>
   
   	<!-- 集中定义依赖版本号 -->
